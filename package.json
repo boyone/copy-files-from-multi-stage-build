@@ -2,9 +2,11 @@
   "name": "hellots",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc",
+    "test": "jest",
+    "lint": "tslint -p '.'"
   },
   "author": "boyone",
   "license": "ISC",
