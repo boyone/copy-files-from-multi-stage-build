@@ -1,5 +1,6 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  preset: 'ts-jest'
+  preset: 'ts-jest',
+  reporters: ['default', ['jest-junit', { suiteName: 'jest tests' }]]
 };
