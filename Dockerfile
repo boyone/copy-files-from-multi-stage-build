@@ -1,13 +1,24 @@
-FROM node:10.11.0-alpine as builder
-
+FROM node:13.7.0-alpine as base
+LABEL id=hello
+LABEL image=base
 WORKDIR /app
-LABEL image=test
 COPY ./package*.json /app/
 RUN npm install
 COPY . /app
-RUN ./node_modules/typescript/bin/tsc --build /app/tsconfig.json
 
-FROM node:10.11.0-alpine
+FROM base as test
+LABEL id=hello
+LABEL image=test
+WORKDIR /app
+RUN npm test
+
+FROM base as builder
+LABEL id=hello
+LABEL image=builder
+WORKDIR /app
+RUN npm start
+
+FROM base
 WORKDIR /app
 COPY package*.json /app/
 COPY --from=builder /app/node_modules /app/node_modules
