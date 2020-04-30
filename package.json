@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "start": "tsc",
+    "compile": "tsc",
     "test": "jest",
     "lint": "tslint -p '.'"
   },
