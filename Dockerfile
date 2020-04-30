@@ -16,7 +16,7 @@ FROM base as builder
 LABEL id=hello
 LABEL image=builder
 WORKDIR /app
-RUN npm start
+RUN npm run compile
 
 FROM base
 WORKDIR /app
